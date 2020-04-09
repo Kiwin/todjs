@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "watch": true,
+    "outDir": "./js"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+}
