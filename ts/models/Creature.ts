@@ -1,31 +1,28 @@
 import { IRender } from "../view/IRender";
 import { CreatureStatCollection } from "./CreatureStatCollection";
-import { AttackDetails } from "./AttackDetails";
 import { Weapon } from "./Weapon";
+import { ITakeDamage } from "./ITakeDamage";
+import { AttackDetail } from "./AttackDetail";
 
-abstract class Creature implements IRender {
+abstract class Creature implements IRender, ITakeDamage {
   
   baseStats: CreatureStatCollection;
   currentStats: CreatureStatCollection;
   weapon : Weapon;
 
-  constructor(baseStats: CreatureStatCollection) {
+  public constructor(baseStats: CreatureStatCollection) {
     this.baseStats = baseStats;
     this.currentStats = baseStats;
   }
 
-  takeDamage(details: AttackDetails) {
-    details.armorDamage;
-  }
+  public abstract takeDamage(attackDetails: AttackDetail[]): AttackDetail[];
 
-  abstract takeArmorDamage();
-
-  isAlive(): boolean {
+  public isAlive(): boolean {
     return this.currentStats.health > 0;
   }
 
-  abstract updateStats(): void;
-  abstract render(): void;
+  public abstract updateStats(): void;
+  public abstract render(): void;
 }
 
 export { Creature };
