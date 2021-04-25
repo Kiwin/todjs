@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "watch": true,
-    "outDir": "./js"
+    "outDir": "./Build"
   },
   "exclude": [
     "node_modules"
